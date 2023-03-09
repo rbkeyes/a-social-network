@@ -32,7 +32,7 @@ module.exports = {
 
     // get single thought by _id
     getOneThought(req, res) {
-        Thought.findOne(req.params.thoughtId)
+        Thought.findOne({_id: req.params.thoughtId})
             .select('-__v')
             .then((thought) =>
                 !thought
