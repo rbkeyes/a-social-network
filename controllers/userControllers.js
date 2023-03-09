@@ -19,7 +19,7 @@ module.exports = {
     // create a new user
     createUser(req, res) {
         User.create(req.body)
-            .then((dbUserData) => res.json(dbUserData))
+            .then((newUser) => res.json(newUser))
             .catch((err) => res.status(500).json(err));
     },
     //   update existing user by _id
@@ -54,8 +54,40 @@ module.exports = {
                     console.log('Unable to delete');
                     res.status(500).json({message: 'Unable to delete'});
                 }
-            })
-    }
+            });
+    },
+        // add new friend to user's friend list
+        addFriend(req, res) {
+            User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: {friends: req.params.friendId} },
+                { new: true },
+                (err, result) => {
+                    if (result) {
+                        res.status(200).json(result);
+                        console.log(`Friend ${result} added`);
+                    } else {
+                        console.log('Unable to add friend');
+                        res.status(500).json({ message: 'Unable to add friend' });
+                    }
+                });
+        },
+    
+        // delete friend from user's friend list
+        deleteFriend(req, res) {
+            User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $pull: {friends: req.params.friendId} },
+                (err, result) => {
+                    if (result) {
+                        res.status(200).json(result);
+                        console.log(`Deleted: ${result}`);
+                    } else {
+                        console.log('Unable to delete');
+                        res.status(500).json({ message: 'Unable to delete' });
+                    }
+                });
+        },
 };
 
 
