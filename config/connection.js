@@ -15,6 +15,7 @@
 
 // module.exports = connection;
 
+// ❓ can connect this way but not connection above, why?
 const mongoose = require('mongoose');
 
 // Wrap Mongoose around local connection to MongoDB
