@@ -32,7 +32,7 @@ module.exports = {
 
     // get single thought by _id
     getOneThought(req, res) {
-        Thought.findOne({_id: req.params.thoughtId})
+        Thought.findOne({ _id: req.params.thoughtId })
             .select('-__v')
             .then((thought) =>
                 !thought
@@ -45,7 +45,7 @@ module.exports = {
     //   update existing thought by _id
     updateThought(req, res) {
         Thought.findOneAndUpdate(
-            req.params.thoughtId,
+            { _id: req.params.thoughtId },
             req.body,
             { new: true },
             (err, result) => {
