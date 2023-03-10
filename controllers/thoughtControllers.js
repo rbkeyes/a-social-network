@@ -32,7 +32,7 @@ module.exports = {
 
     // get single thought by _id
     getOneThought(req, res) {
-        Thought.findOne(req.params.thoughtId)
+        Thought.findOne({ _id: req.params.thoughtId })
             .select('-__v')
             .then((thought) =>
                 !thought
@@ -45,12 +45,12 @@ module.exports = {
     //   update existing thought by _id
     updateThought(req, res) {
         Thought.findOneAndUpdate(
-            req.params.thoughtId,
+            { _id: req.params.thoughtId },
             req.body,
             { new: true },
             (err, result) => {
                 if (result) {
-                    res.status(200).json(result);
+                    res.status(200).json({ message: `Thought updated` });
                     console.log(`Updated: ${result}`);
                 } else {
                     console.log('Unable to update');
@@ -62,9 +62,9 @@ module.exports = {
     // find and delete thought by _id
     deleteThought(req, res) {
         Thought.findOneAndDelete(
-            req.params.thoughtId, (err, result) => {
+            { _id: req.params.thoughtId }, (err, result) => {
                 if (result) {
-                    res.status(200).json(result);
+                    res.status(200).json({ message: `Thought deleted` });
                     console.log(`Deleted: ${result}`);
                 } else {
                     console.log('Unable to delete');
