@@ -50,7 +50,7 @@ module.exports = {
             { new: true },
             (err, result) => {
                 if (result) {
-                    res.status(200).json(result);
+                    res.status(200).json({ message: `Thought updated` });
                     console.log(`Updated: ${result}`);
                 } else {
                     console.log('Unable to update');
@@ -64,7 +64,7 @@ module.exports = {
         Thought.findOneAndDelete(
             { _id: req.params.thoughtId }, (err, result) => {
                 if (result) {
-                    res.status(200).json({message: `Thought deleted`});
+                    res.status(200).json({ message: `Thought deleted` });
                     console.log(`Deleted: ${result}`);
                 } else {
                     console.log('Unable to delete');
