@@ -83,8 +83,9 @@ Once you have installed all dependencies specified above and started the server,
     Sample JSON format to create new thought in Insomnia:
     ```
     {
-        "thoughtTest": "[enter thought text]",
-        "username": "[username of user adding thought]"
+        "thoughtText": "[enter thought text]",
+        "username": "[username of user adding thought]",
+        "userId" "[_id of user adding thought]"
     }
     ```
 
