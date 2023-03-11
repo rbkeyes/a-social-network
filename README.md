@@ -38,7 +38,6 @@ This application has not been deployed, and does not include a front-end.
 
 ## Installation
 
-
 To install and run this application, you must have Node.js on your computer. Instructions to install Node.js can be found [here](https://nodejs.org/en/). You will also need to install [Insomnia](https://insomnia.rest/) to test the routes and view available data.
 
 Clone the [GitHub repo](https://github.com/rbkeyes/a-social-network) to a local repo. The package-json file includes the necessary npm packages and can be installed by running 
@@ -55,6 +54,12 @@ or, to start with nodemon,
 ```
 npm run dev
 ```
+
+
+**Demo: command-line install dependencies and run application**
+
+https://user-images.githubusercontent.com/114431225/224452203-6df665c7-d3ae-45b2-adff-3ae622141a0c.mp4
+
 
 ## Usage
 
@@ -75,6 +80,12 @@ Once you have installed all dependencies specified above and started the server,
 - **/api/users/:userId** : GET to find specific user, PUT to find and update user, and DELETE to delete user. Add user's mongoDB _id to the route in place of **:userID** to use these routes.
 
 - **/api/users/:userId/friends/:friendId** : POST to add a friend to user's friends array, and DELETE to pull friend from user's friends array. Add user's mongoDb _id in place of **:userId** and the user _id of the friend to be added in place of **:friendId** to use these routes.
+
+
+**Demo: User routes in Insomnia**
+
+https://user-images.githubusercontent.com/114431225/224452342-6eb09f55-f2bd-4dd1-887c-5bbd2a09ede4.mp4
+
 
 ***Thought routes include:***
 
@@ -102,6 +113,12 @@ Once you have installed all dependencies specified above and started the server,
     ```
 
 - **/api/thoughts/:thoughtId/reactions/:reactionId** : DELETE to delete reaction and remove from reactions array of associated thought. Add _id of specific thought to route in place of **/:thoughtId**, and reactionId of reaction in place of **/:reactionId** to use these routes.
+
+
+**Demo: Thought routes in Insomnia**
+
+https://user-images.githubusercontent.com/114431225/224452403-23a91c0e-dd0e-4db0-8e3b-6dff8c114b2e.mp4
+
 
 ## Credits
 
